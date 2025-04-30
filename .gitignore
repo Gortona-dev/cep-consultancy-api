@@ -1,0 +1,23 @@
+# Ignorar dependências
+node_modules/
+**/node_modules/
+
+# Ignorar builds
+dist/
+build/
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE e sistema
+.vscode/
+.DS_Store
+Thumbs.db
+
+# React cache
+.cache/

@@ -1,0 +1,222 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.formulario {
+  max-width: 600px;
+  margin: 0 auto 20px auto; /* Centralizado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.formulario input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.formulario button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.formulario button:hover {
+  background: #0056b3;
+}
+
+.tema-switch {
+  text-align: right;
+  padding: 10px;
+}
+
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg, .moon svg {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+}
+
+.sun svg {
+  top: 6px;
+  left: 36px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  top: 5px;
+  left: 5px;
+}
+
+.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.input:checked + .slider {
+  background-color: #183153;
+}
+
+.input:focus + .slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.container-resultado-mapa {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background 0.5s, color 0.5s;
+}
+
+body.dark .container-resultado-mapa {
+  background: #1e1e1e;
+}
+
+#resultado {
+  text-align: left;
+}
+
+.mensagem {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.mensagem.erro {
+  background-color: #ffb3b3;
+  color: red;
+}
+
+.mensagem.sucesso {
+  background-color: #b3ffb3;
+  color: green;
+}
+
+.botao-maps {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.botao-maps:hover {
+  background: #218838;
+}
+
+.mapa-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.mapa-container iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .formulario {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formulario input,
+  .formulario button {
+    width: 100%;
+  }
+
+  .container-resultado-mapa {
+    width: 95%;
+    padding: 10px;
+  }
+}
